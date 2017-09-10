@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import * as actions from '../actions'
 
 class Plates extends Component {
-  constructor(args) {
-    super(args);
+  constructor(props) {
+    super(props);
     this.state = {
       //plateImageSrc: "/images/5.png"
     }
