@@ -479,4 +479,4 @@ document.addEventListener('DOMContentLoaded', function() {
   loadPlate(someStyle, someNum);
 });
 
-export default loadPlate;
+// export default loadPlate;

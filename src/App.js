@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Quiz from './components/Quiz.js'
+// import Quiz from './components/Quiz.js'
 import {connect} from 'react-redux'
 import * as actions from './actions'
 import Answers from './components/Answers'
@@ -17,10 +17,8 @@ class App extends Component {
   }
 
   updateAnswer(answer){
-    console.log("Here in app "+answer)
-    console.log("Here in current "+this.state.current)
     this.setState({answer:answer, current:this.state.current+1});
-    console.log("Here in current after update "+this.state.current)
+    console.log("State: "+ answer + " current: "+this.state.current)
   }
 
   componentWillMount(){
@@ -31,12 +29,11 @@ class App extends Component {
   renderList = (plates) =>{
     if(plates){
       return plates.map((plate)=>{
-        if(plate.id == this.state.current){
+        if(plate.id === this.state.current){
         return (
             <div>
               {plate.imageName}
               <canvas id="canvas">Your browser does not support canvas.</canvas>
-              {/* {loadPlate()} */}
               <Answers updateAnswer={this.updateAnswer}/>
             </div>
         )
