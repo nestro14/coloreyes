@@ -479,4 +479,4 @@ function getRandomInt(min, max) {
 //   loadPlate(someStyle, someNum);
 // });
 
-export default loadPlate;
+// export default loadPlate;

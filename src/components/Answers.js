@@ -8,7 +8,12 @@ class Answers extends Component {
 
   handleChange(event){
     // console.log("Save answer and move to next plate! User selected: " + event.target.value);
-    this.props.updateAnswer(event.target.value);
+    // console.log(this.props.plate)
+    if(this.props.plate.number != event.target.value){
+      this.props.updateAnswer(this.props.plate.test);
+    }else{
+      this.props.updateAnswer(event.target.value);
+    }
   }
 
   render(){
