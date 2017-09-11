@@ -3,8 +3,21 @@ import './App.css';
 import Quiz from './components/Quiz.js'
 import {connect} from 'react-redux'
 import * as actions from './actions'
+import Answers from './components/Answers'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      answer:''
+    }
+    this.updateAnswer = this.updateAnswer.bind(this);
+  }
+
+  updateAnswer(answer){
+    console.log("Here in app "+answer)
+    this.setState({answer:answer});
+  }
 
   componentWillMount(){
     this.props.platesList()
@@ -13,9 +26,15 @@ class App extends Component {
   renderList = (plates) =>{
     if(plates){
       return plates.map((plate)=>{
+        if(plate.id == 1){
         return (
-          <div>{plate.imageName}</div>
+            <div>
+              {plate.imageName}
+              <canvas id="canvas">Your browser does not support canvas.</canvas>
+              <Answers updateAnswer={this.updateAnswer}/>
+            </div>
         )
+      }
       })
     }  
   }
